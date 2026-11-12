@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vision-assistant"
+version = "1.0.0"
+description = "Vision: a voice-first AI assistant with pluggable language models and tools"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Kaarthic Pranav Thirumurthy" }]
+
+[project.optional-dependencies]
+voice = ["SpeechRecognition>=3.10", "PyAudio>=0.2.13", "pyttsx3>=2.90"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+vision = "vision.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vision*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
